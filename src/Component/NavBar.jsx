@@ -12,31 +12,12 @@ const NavBar = () => {
                 <img
                     src={logo}
                     alt="Logo"
-                    height="35"
+                    height="30"
                     className="d-inline-block  me-2"
-                />
-
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div
-                    className="collapse navbar-collapse nav justify-content-end"
-                    id="navbarSupportedContent"
-                >
+                />                
                     <div className="d-flex " id="navbarSupportedContent">
                         <SearchBar />
                     </div>
-                </div>
 
             </div>
         </div>

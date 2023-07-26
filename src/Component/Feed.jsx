@@ -14,6 +14,7 @@ function Feed() {
 
 
 
+  console.log(Video)
 
   return (
     <div className="d-flex flex-column">

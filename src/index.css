@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Trirong", serif;
 }
 
 a {
@@ -63,6 +64,17 @@ a {
   transition: all 0.3s ease;
   ;
 }
+.videocontainer {
+  height: 220px;
+  width: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.videocontainer img {
+  height: 300px;
+  width: 100%;
+  margin: -40px 0 0 -0;
+}
 
 @media screen and (max-width: 900px) {
   .category-btn{
@@ -85,6 +97,6 @@ a {
     height: 45vh !important;
   }
   .search-bar{
-    width:200px;
+    width:75px;
   }
 }
