@@ -6,8 +6,6 @@ import logo from '../utils/yt_light.png'
 const NavBar = () => {
     return (
         <div className="navbar navbar-expand-lg bg-body-tertiaryName" >
-
-
             <div className="container-fluid">
                 <img
                     src={logo}

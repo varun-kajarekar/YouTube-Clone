@@ -1,5 +1,5 @@
 import React from 'react';
-import {VideoCard,ChannelCard} from './';
+import {VideoCard} from './';
 
 
 
@@ -12,7 +12,7 @@ const Videos = ({Video}) => {
 
             {
                 Video.map((item)=>(
-                    item.id.videoId && <VideoCard videos = {item} key={item?.snippet?.title}/>  
+                    <VideoCard videos = {item} key={item?.snippet?.title}/>
                 ))
             }
 

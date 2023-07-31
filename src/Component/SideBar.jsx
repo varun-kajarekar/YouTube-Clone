@@ -10,12 +10,12 @@ const SideBar = ({click,setClick}) => {
                 <button className='category-btn'
                     style={
                         {
-                            backgroundColor:category.name===click && 'rgba(122, 122, 122, 0.375)',
+                            backgroundColor:category.id===click && 'rgba(92, 92, 92, 0.1)',
                             color:category.name===click && 'black'
                         }
                     }
                     onClick={()=>{
-                        setClick(category.name)
+                        setClick(category.id)
                     }}
                     key={category.name}
                 >

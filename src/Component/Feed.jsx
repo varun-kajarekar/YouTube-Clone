@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { SideBar, Videos } from './'
-import { FetchFromApi } from '../utils/FetchFromApi'
+import { FetchAllVideo } from '../utils/FetchFromApi'
 
 function Feed() {
-
-  const [categoryselected, setcategoryselected] = useState('All');
+  const [categoryselected, setcategoryselected] = useState();
   const [Video, setVideo] = useState([])
-
+  var id = ""
+  if (categoryselected) {
+    id = `&videoCategoryId=${categoryselected}`
+  }
   useEffect(() => {
-    FetchFromApi(`search?part=snippet&q=${categoryselected}`)
+    FetchAllVideo(`${id}`)
       .then((data) => { setVideo(data.items) })
   }, [categoryselected])
-
-
-
-  console.log(Video)
-
   return (
     <div className="d-flex flex-column">
       <div className="overflow-auto sticky-top" style={{}}>
@@ -25,6 +22,7 @@ function Feed() {
       <div className="p-2">
         <Videos Video={Video} />
       </div>
+
     </div>
   )
 }
