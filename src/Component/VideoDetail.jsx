@@ -54,7 +54,7 @@ const VideoDetail = () => {
       </div>
       <div className='container d-flex justify-content-between p-0'>
       <div className='d-flex align-items-center'>
-        <div className='d-inline-flex '>
+        <div className='d-inline-flex ms-3'>
           <img src={Channel?.snippet?.thumbnails?.default?.url} className='rounded-circle' height={50} />
         </div>
         <div className='d-flex flex-column mx-2'>
@@ -62,12 +62,12 @@ const VideoDetail = () => {
           <div class="fw-lighter">{subCount} subscribers</div>
         </div>
         <div>
-          <button type="button" className="btn btn-dark rounded-pill ml-4">Subscribe</button>
+          <button type="button" className="btn btn-dark rounded-pill ms-5">Subscribe</button>
         </div>
       </div>
 
       
-      <div className='d-flex align-items-center'>
+      <div className='d-none d-lg-block d-flex align-items-center'>
       <button type="button" class="btn btn-light rounded-start-pill"><img src = {Like} height='20px'/><span className='ms-2'>{likeCount}</span></button>
       <button type="button" class="btn btn-light rounded-end-pill"><img src = {DisLike} height='20px'/></button>
       </div>

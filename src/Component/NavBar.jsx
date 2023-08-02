@@ -7,16 +7,17 @@ const NavBar = () => {
     return (
         <div className="navbar navbar-expand-lg bg-body-tertiaryName" >
             <div className="container-fluid">
+            <Link to={`/`}>
                 <img
                     src={logo}
                     alt="Logo"
                     height="30"
                     className="d-inline-block  me-2"
-                />                
+                />   
+            </Link>             
                     <div className="d-flex " id="navbarSupportedContent">
                         <SearchBar />
                     </div>
-
             </div>
         </div>
     )

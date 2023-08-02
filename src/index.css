@@ -93,6 +93,9 @@ a {
   .react-player {
     height: 35vh !important;
   }
+  .like-dislike{
+	display: none;
+  }
 }
 
 

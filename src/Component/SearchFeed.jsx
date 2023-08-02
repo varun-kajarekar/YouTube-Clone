@@ -18,7 +18,7 @@ const SearchFeed = () => {
       <div className="d-flex flex-column">
       
         <div className="p-2">
-      <span>Search result</span>
+        <span>Search result</span>
           <Videos Video={Video} />
         </div>
 
@@ -26,5 +26,4 @@ const SearchFeed = () => {
     </div>
   )
 }
-
 export default SearchFeed
