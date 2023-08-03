@@ -18,7 +18,7 @@ function Feed() {
   }, [categoryselected])
   return (
     <div className="d-flex flex-column">
-      <div className="overflow-auto sticky-top" style={{}}>
+      <div className="overflow-auto " style={{}}>
         <SideBar click={categoryselected} setClick={setcategoryselected} />
       </div>
 
