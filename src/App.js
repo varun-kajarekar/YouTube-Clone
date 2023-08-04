@@ -1,14 +1,19 @@
 import './App.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import {NavBar,Feed,SearchFeed,VideoDetail,ChannelDetail} from './Component';
+import { useSession, useSupabaseClient} from '@supabase/auth-helpers-react'
 
 
 
 
 function App() {
+  const session = useSession();
+  const supabase = useSupabaseClient();
+
+
   return (
     <BrowserRouter>
-        <NavBar/>
+        <NavBar session = {session} supabase = {supabase}/>
         <Routes>
           <Route path='/' exact element={<Feed/>}></Route>
           <Route path='/video/:id'  element={<VideoDetail/>}></Route>
