@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 import logo from '../utils/yt_light.png'
-import Signin from './signin'
-import UserInfo from './userInfo'
+import Signin from './Signin'
+import UserInfo from './UserInfo'
 
 
 const NavBar = ({ session, supabase }) => {

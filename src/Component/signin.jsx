@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function signin({session,supabase}) {
+function Signin({session,supabase}) {
     async function googleSignIn() {
         const { error } = await supabase.auth.signInWithOAuth({
             provider: 'google',
@@ -19,4 +19,4 @@ function signin({session,supabase}) {
   )
 }
 
-export default signin
+export default Signin
