@@ -16,7 +16,7 @@ function App() {
         <NavBar session = {session} supabase = {supabase}/>
         <Routes>
           <Route path='/' exact element={<Feed/>}></Route>
-          <Route path='/video/:id'  element={<VideoDetail/>}></Route>
+          <Route path='/video/:id'  element={<VideoDetail session = {session} supabase = {supabase} />}></Route>
           <Route path='/channel/:id' element={<ChannelDetail/>}></Route>
           <Route path='/Subscriptions' element={<Subscriptions session = {session} supabase = {supabase}/> }></Route>
           <Route path='/search/:searchTerm' exact element={<SearchFeed/>}></Route>

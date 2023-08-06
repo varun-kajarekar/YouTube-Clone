@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player/youtube'
+import SubscribeBtn from './SubscribeBtn'
 import { FetchVideoDetails, FetchchannelsDetails } from '../utils/FetchFromApi'
 import Like from '../utils/like.png'
 import DisLike from '../utils/dislike.png'
 
 
-const VideoDetail = () => {
+const VideoDetail = ({session, supabase }) => {
   const [Video, setVideo] = useState([])
   const [Channel, setChannel] = useState([])
   const { id } = useParams();
+  const [Subscribechannel, setSubscribechannel] = useState([]);
+  const[sub,setsub] = useState();
+
 
   useEffect(() => {
     FetchVideoDetails(`${id}`)
@@ -17,6 +21,19 @@ const VideoDetail = () => {
         setVideo(data.items);
         FetchchannelsDetails(data.items[0]?.snippet?.channelId)
           .then((data) => { setChannel(data?.items[0]) });
+          if(session){
+            fetch("https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=30&mine=true&key=AIzaSyAaVKiY4qRZ0l5qRydflA4J7GY92afBOFk", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + session.provider_token
+            }
+        }).then((data) => {
+            return data.json()
+        }).then((data) => {
+          setSubscribechannel(data.items)
+        })
+        }
       });
   }, [id])
 
@@ -62,7 +79,18 @@ const VideoDetail = () => {
           <div class="fw-lighter">{subCount} subscribers</div>
         </div>
         <div>
-          <button type="button" className="btn btn-dark rounded-pill ms-5">Subscribe</button>
+          
+          
+          {
+            <SubscribeBtn 
+                  Subscribechannel={Subscribechannel} 
+                  Channel={Channel} 
+                  setsub={setsub}
+                  sub={sub}
+                  />
+          }
+          
+          
         </div>
       </div>
 

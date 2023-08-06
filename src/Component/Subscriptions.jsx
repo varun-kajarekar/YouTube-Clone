@@ -9,7 +9,7 @@ const Subscriptions = ({ session, supabase }) => {
 
     useEffect(() => {
         if(session){
-            fetch("https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true&key=AIzaSyAaVKiY4qRZ0l5qRydflA4J7GY92afBOFk", {
+            fetch("https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=30&mine=true&key=AIzaSyAaVKiY4qRZ0l5qRydflA4J7GY92afBOFk", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
