@@ -12,7 +12,7 @@ const SubscribeBtn = ({Subscribechannel,Channel,setsub,sub}) => {
         <button type="button" 
         className="btn btn-dark rounded-pill ms-2">
             {
-                sub?"Unsubscribe":"subscribe"
+                sub?"Unsubscribe":"Subscribe"
             }
         </button>
     )

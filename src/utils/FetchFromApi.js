@@ -20,5 +20,16 @@ import  axios  from "axios";
     return data;
   }
 
+  export const FetchSubDetails= async(session)=>{
+    const options = {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + session.provider_token
+      }
+    };
+    const {data} = await axios.get(`https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=30&mine=true&key=AIzaSyAaVKiY4qRZ0l5qRydflA4J7GY92afBOFk`,options)
+    return data;
+  }
 
 
