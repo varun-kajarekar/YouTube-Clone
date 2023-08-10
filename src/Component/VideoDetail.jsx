@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player/youtube'
 
-import { FetchVideoDetails, FetchchannelsDetails,FetchSubDetails } from '../utils/FetchFromApi'
+import { FetchVideoDetails, FetchchannelsDetails,FetchSubDetails,AddSubscriber,RemoveSubscriber } from '../utils/FetchFromApi'
 import Like from '../utils/like.png'
 import DisLike from '../utils/dislike.png'
 
@@ -40,12 +40,11 @@ const VideoDetail = ({ session, supabase }) => {
             if (session) {
 
               // Get request for subscribe yt channels  Details of the login user 
-              FetchSubDetails(session)
+              FetchSubDetails(session,tempChannel?.id)
               .then((data) => {
       
                 // Set the details of subscribe in the Subscribechannel state
                 setSubscribechannel(data.items)
-
                 // Iterate over the details of subscribe to find current yt channel is sub or not
                 data.items.map((item)=>{
                   if(item?.snippet?.resourceId?.channelId === tempChannel?.id){
@@ -62,7 +61,7 @@ const VideoDetail = ({ session, supabase }) => {
         
       }
       );
-      
+
   }, [])
 
 
@@ -93,7 +92,19 @@ const VideoDetail = ({ session, supabase }) => {
 
 
   const HandleClick = ()=>{
-    sub?setsub(false):setsub(true);
+    if(session){
+      if(sub){
+        RemoveSubscriber(session,Subscribechannel[0]?.id)
+  
+        setsub(false);
+      }else{
+        AddSubscriber(session,Channel?.id)
+  
+        setsub(true);
+      }
+    }
+    
+    
   }
 
 

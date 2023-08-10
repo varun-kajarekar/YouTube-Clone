@@ -23,10 +23,12 @@ function VideoCard({ videos }) {
     if(Duration.length === 2) {
       Duration = '0:' + Duration
     }
+  }else{
+    Duration='33:33'
   }
 
 
-
+  
   useEffect(() => {
     FetchchannelsDetails(videos?.snippet?.channelId)
       .then((data) => { setChannel(data?.items[0]) });

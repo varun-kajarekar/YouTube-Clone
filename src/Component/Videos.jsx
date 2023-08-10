@@ -5,6 +5,7 @@ import {VideoCard,ChannelCard} from './';
 
 
 const Videos = ({Video}) => {
+
   return (
     
     <div className="container">
@@ -12,7 +13,7 @@ const Videos = ({Video}) => {
 
             {
                 Video.map((item)=>(
-                    item?.snippet?.categoryId?
+                    item?.id?.kind==='youtube#video' || item?.kind==='youtube#video'?
                     <VideoCard videos = {item} key={item?.snippet?.title}/>
                     :
                     <ChannelCard Channel = {item} key={item?.snippet?.title}/>

@@ -9,7 +9,6 @@ export { default as Videos} from './Videos';
 export { default as VideoCard} from './VideoCard';
 export {default as ChannelCard} from './ChannelCard';
 export {default as Subscriptions} from './Subscriptions';
-export {default as SubscribeBtn} from './SubscribeBtn';
 
 
 
