@@ -11,9 +11,10 @@ const  UserInfo = ({ session, supabase })=> {
 
     function HandleSubButtom(){
         navigate(`/Subscriptions`)
-        console.log("varun")
     }
-
+    function HandleLikeButtom(){
+        navigate(`/LikeVideo`)
+    }
     return (
         <div class="dropdown d-flex my-1">
             <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,7 +23,7 @@ const  UserInfo = ({ session, supabase })=> {
             <ul class="dropdown-menu">
                 <div class="d-grid">
                     <button class="btn btn-light btn-sm" type="button" onClick={HandleSubButtom}>Subscriptions</button>
-                    <button class="btn btn-light btn-sm" type="button">Liked videos</button>
+                    <button class="btn btn-light btn-sm" type="button" onClick={HandleLikeButtom}>Liked videos</button>
                     <button class="btn btn-light btn-sm" type="button" onClick={signOut}>Sign out</button>
                 </div>
             </ul>

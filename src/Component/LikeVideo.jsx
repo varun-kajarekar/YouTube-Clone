@@ -1,17 +1,15 @@
-import React, { useState,useEffect } from "react";
+import React , { useState,useEffect } from "react";
 import { Videos } from './'
 import Signin from './Signin'
-import { GetAllsubscriptions } from '../utils/FetchFromApi'
+import { GetLikesubscriptions } from '../utils/FetchFromApi'
 
 
-
-
-const Subscriptions = ({ session, supabase }) => {
+const LikeVideo=({ session, supabase })=>{
     const [Video, setVideo] = useState([]);
 
     useEffect(() => {
         if(session){
-            GetAllsubscriptions(session)
+            GetLikesubscriptions(session)
             .then((data) => {
             setVideo(data.items)
         })
@@ -32,6 +30,7 @@ const Subscriptions = ({ session, supabase }) => {
 
 
         </>
-    )
+    );
 }
-export default Subscriptions;
+
+export default LikeVideo;

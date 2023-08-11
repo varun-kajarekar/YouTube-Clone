@@ -13,7 +13,7 @@ const VideoDetail = ({ session, supabase }) => {
   const { id } = useParams();
   const [Subscribechannel, setSubscribechannel] = useState([]);
   const [sub, setsub] = useState(false);
-
+  const [btnBlock, setbtnBlock] = useState(false)
 
   var tempChannel = [];
 
@@ -84,14 +84,24 @@ const VideoDetail = ({ session, supabase }) => {
     return num;
   }
   
-  let subCount = '100M';
+  let subCount = '1M';
   subCount = formatNumber(Channel?.statistics?.subscriberCount);
   let likeCount = '1K';
   likeCount = formatNumber(Video[0]?.statistics?.likeCount);
 
-
+  let viewCount = '1K';
+  viewCount = formatNumber(Video[0]?.statistics?.viewCount);
+  // console.log(Video)
 
   const HandleClick = ()=>{
+
+    // Block the subscribe button
+    setbtnBlock(true)
+
+    // unblock the subscribe button after 5 sec.
+    setTimeout(() => setbtnBlock(false), 5000);
+
+
     if(session){
       if(sub){
         RemoveSubscriber(session,Subscribechannel[0]?.id)
@@ -135,7 +145,9 @@ const VideoDetail = ({ session, supabase }) => {
               
               <button type="button"
                 onClick={HandleClick}
-                className="btn btn-dark rounded-pill ms-2">
+                className="btn btn-dark rounded-pill ms-2"
+                disabled={btnBlock}
+                >
                 {
                   sub ? "Unsubscribe" : "Subscribe"
                 }
@@ -148,6 +160,7 @@ const VideoDetail = ({ session, supabase }) => {
 
 
         <div className='d-none d-lg-block d-flex align-items-center'>
+        <button type="button" class="btn btn-light rounded-pill me-2"><span className='ms-2'>{viewCount} views</span></button>
           <button type="button" class="btn btn-light rounded-start-pill"><img src={Like} height='20px' /><span className='ms-2'>{likeCount}</span></button>
           <button type="button" class="btn btn-light rounded-end-pill"><img src={DisLike} height='20px' /></button>
         </div>
