@@ -10,7 +10,6 @@ function App() {
   const session = useSession();
   const supabase = useSupabaseClient();
 
-
   return (
     <BrowserRouter>
         <NavBar session = {session} supabase = {supabase}/>
